@@ -7,8 +7,8 @@ import SmallCard from './SmallCard';
 
 /* <!-- Movies in DB --> */
 
-let moviesInDB = {
-    title: 'Total Porductos',
+let productsDb = {
+    title: 'Total Productos',
     color: 'primary', 
     cuantity: 21,
     icon: 'fa-clipboard-list'
@@ -16,7 +16,7 @@ let moviesInDB = {
 
 /* <!-- Total awards --> */
 
-let totalAwards = {
+let usersDb = {
     title:' Total Usuarios', 
     color:'success', 
     cuantity: 5,
@@ -25,34 +25,53 @@ let totalAwards = {
 
 /* <!-- Actors quantity --> */
 
-let actorsQuantity = {
+let categoriesDb = {
     title:'Total Categorias',
     color:'warning',
     cuantity:'49',
     icon:'fa-user-check'
 }
 
-let cartProps = [moviesInDB, totalAwards, actorsQuantity];
+let cartProps = [productsDb, usersDb, categoriesDb];
 
-class ContentRowMovies extends Component{
+class TotalsRow extends Component{
     
     constructor(props){
         super(props)
         this.state = {
-            usersList: []
+            productsList: [],
+            usersList: [],
+            categoriesList: [] 
         }
     }
+
     componentDidMount(){
+        fetch("/api/products")
+        .then(response => response.json())
+        .then(products => {
+            this.setState({productsList: products.products})
+            console.log(products)
+        })
         fetch("/api/users")
         .then(response => response.json())
         .then(users => {
             this.setState({usersList: users.result})
             console.log(users)
         })
+        fetch("/api/products")
+        .then(response => response.json())
+        .then(categories => {
+            this.setState({categoriesList: categories.productCountByVariety})
+            console.log(categories)
+        })
+  
     }
-    render(){
 
+    render(){
+        cartProps[0].cuantity = this.state.productsList.length
         cartProps[1].cuantity = this.state.usersList.length
+        cartProps[2].cuantity = this.state.categoriesList.length
+      
 
         return (
     
@@ -66,6 +85,6 @@ class ContentRowMovies extends Component{
 
         </div>
     )}
-}
+    }
 
-export default ContentRowMovies;
+        export default TotalsRow;
