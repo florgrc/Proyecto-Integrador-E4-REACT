@@ -25,14 +25,14 @@ let usersDb = {
 
 /* <!-- Actors quantity --> */
 
-let categoriesDb = {
-    title:'Total Categorias',
+let varietiesDb = {
+    title:'Total Variedades',
     color:'warning',
     cuantity:'49',
     icon:'fa-user-check'
 }
 
-let cartProps = [productsDb, usersDb, categoriesDb];
+let cartProps = [productsDb, usersDb, varietiesDb];
 
 class TotalsRow extends Component{
     
@@ -41,7 +41,7 @@ class TotalsRow extends Component{
         this.state = {
             productsList: [],
             usersList: [],
-            categoriesList: [] 
+            varietiesList: [] 
         }
     }
 
@@ -60,9 +60,9 @@ class TotalsRow extends Component{
         })
         fetch("/api/products")
         .then(response => response.json())
-        .then(categories => {
-            this.setState({categoriesList: categories.productCountByVariety})
-            console.log(categories)
+        .then(varieties => {
+            this.setState({varietiesList: varieties.productCountByVariety})
+            console.log(varieties)
         })
   
     }
@@ -70,7 +70,7 @@ class TotalsRow extends Component{
     render(){
         cartProps[0].cuantity = this.state.productsList.length
         cartProps[1].cuantity = this.state.usersList.length
-        cartProps[2].cuantity = this.state.categoriesList.length
+        cartProps[2].cuantity = this.state.varietiesList.length
       
 
         return (

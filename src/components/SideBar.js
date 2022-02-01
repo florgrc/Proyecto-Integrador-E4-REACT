@@ -1,7 +1,7 @@
 import React from 'react';
-import image from '../assets/images/logo-DH.png';
+import image from '../assets/images/LogoWeb.svg';
 import ContentWrapper from './ContentWrapper';
-import CategoriesInDb from './CategoriesInDb';
+import ContentRowCenter from './ContentRowCenter';
 import LastProductCreated from './LastProductCreated';
 import TotalsRow from './TotalsRow';
 import NotFound from './NotFound';
@@ -16,7 +16,7 @@ function SideBar(){
                 {/*<!-- Sidebar - Brand -->*/}
                 <a className="sidebar-brand d-flex align-items-center justify-content-center" href="/">
                     <div className="sidebar-brand-icon">
-                        <img className="w-100" src={image} alt="Digital House"/>
+                        <img className="w-100" src={image} alt="TWS"/>
                     </div>
                 </a>
 
@@ -38,19 +38,11 @@ function SideBar(){
 
                 {/*<!-- Nav Item - Pages -->*/}
                 <li className="nav-item">
-                <Link className="nav-link" to="/CategoriesInDb">
+                <Link className="nav-link" to="/ContentRowCenter">
                         <i className="fas fa-fw fa-folder"></i>
                         <span>Pages</span>
                     </Link>
                 </li>
-
-                {/*<!-- Nav Item - Charts -->*/}
-                <li className="nav-item">
-                    <Link className="nav-link" to="/LastProductCreated">
-                        <i className="fas fa-fw fa-chart-area"></i>
-                        <span>Charts</span></Link>
-                </li>
-
                 {/*<!-- Nav Item - Tables -->*/}
                 <li className="nav-item nav-link">
                 <Link className="nav-link" to="/TotalsRow">
@@ -83,11 +75,8 @@ function SideBar(){
                 <Route exact path="/">
                     <ContentWrapper />
                 </Route>
-                <Route path="/CategoriesInDb">
-                    <CategoriesInDb />
-                </Route>
-                <Route path="/LastProductCreated">
-                    <LastProductCreated />
+                <Route path="/ContentRowCenter">
+                    <ContentRowCenter />
                 </Route>
                 <Route path="/TotalsRow">
                     <TotalsRow />

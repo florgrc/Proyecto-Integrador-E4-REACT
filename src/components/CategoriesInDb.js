@@ -1,71 +1,38 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
-function CategoriesInDb() {
+function CategoriesInDb({varieties}) {
+
+  console.log(varieties);
+
   return (
     <div className="col-lg-6 mb-4">
       <div className="card shadow mb-4">
         <div className="card-header py-3">
           <h5 className="m-0 font-weight-bold text-gray-800">
-            Categorias en Base de Datos
+            Variedades en Base de Datos
           </h5>
         </div>
+       
         <div className="card-body">
           <div className="row">
-            <div className="col-lg-6 mb-4">
+          {varieties.map(variety => (
+          <div className="col-lg-6 mb-4">
               <div className="card bg-dark text-white shadow">
-                <div className="card-body">Acción</div>
+                <div className="card-body">{variety.variety} ({variety.count})</div>
               </div>
             </div>
-            <div className="col-lg-6 mb-4">
-              <div className="card bg-dark text-white shadow">
-                <div className="card-body">Animación</div>
-              </div>
-            </div>
-            <div className="col-lg-6 mb-4">
-              <div className="card bg-dark text-white shadow">
-                <div className="card-body">Aventura</div>
-              </div>
-            </div>
-            <div className="col-lg-6 mb-4">
-              <div className="card bg-dark text-white shadow">
-                <div className="card-body">Ciencia Ficción</div>
-              </div>
-            </div>
-            <div className="col-lg-6 mb-4">
-              <div className="card bg-dark text-white shadow">
-                <div className="card-body">Comedia</div>
-              </div>
-            </div>
-            <div className="col-lg-6 mb-4">
-              <div className="card bg-dark text-white shadow">
-                <div className="card-body">Documental</div>
-              </div>
-            </div>
-            <div className="col-lg-6 mb-4">
-              <div className="card bg-dark text-white shadow">
-                <div className="card-body">Drama</div>
-              </div>
-            </div>
-            <div className="col-lg-6 mb-4">
-              <div className="card bg-dark text-white shadow">
-                <div className="card-body">Fantasia</div>
-              </div>
-            </div>
-            <div className="col-lg-6 mb-4">
-              <div className="card bg-dark text-white shadow">
-                <div className="card-body">Infantiles</div>
-              </div>
-            </div>
-            <div className="col-lg-6 mb-4">
-              <div className="card bg-dark text-white shadow">
-                <div className="card-body">Musical</div>
-              </div>
-            </div>
+          ))}
           </div>
         </div>
       </div>
     </div>
-  );
-}
+  )};
+
+  /* DEFINICIÓN DE PROPIEDADES POR DEFAULT */
+
+  
+/* PROPTYPES */
+
 
 export default CategoriesInDb;
