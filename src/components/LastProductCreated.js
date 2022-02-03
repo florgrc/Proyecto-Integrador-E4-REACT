@@ -7,14 +7,14 @@ function LastProductCreated(props){
         <div className="col-lg-6 mb-4">
             <div className="card shadow mb-4">
                 <div className="card-header py-3">
-                    <h5 className="m-0 font-weight-bold text-gray-800">{props.name}</h5>
+                    <h5 className="m-0 font-weight-bold text-gray-800">Ultimo producto creado: {props.name}</h5>
                 </div>
                 <div className="card-body">
                     <div className="text-center">
                         <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{width: 40 +'rem'}} src={props.image} alt=" LatestProduct "/>
                     </div>
                     <p>{props.description}</p>
-                    <a className="btn btn-danger" target="_blank" rel="nofollow" href={props.detail}>View movie detail</a>
+                    <a className="btn btn-danger" target="_blank" rel="nofollow" href={props.detail}>Ver detalle del producto</a>
                 </div>
             </div>
         </div>
